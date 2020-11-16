@@ -672,7 +672,11 @@ public final class HuaweiTask<RawResult, Result> implements Task<Result> {
                         @Override
                         public void onComplete(
                                 @NonNull com.huawei.hmf.tasks.Task<RawResult> task) {
-                            mResult = mResultInterceptor.intercept(task.getResult());
+                            if (task.isSuccessful()) {
+                                mResult = mResultInterceptor.intercept(task.getResult());
+                            } else {
+                                mException = task.getException();
+                            }
                             listener.onComplete(mDelegate);
                         }
                     });
@@ -689,7 +693,11 @@ public final class HuaweiTask<RawResult, Result> implements Task<Result> {
                         @Override
                         public void onComplete(
                                 @NonNull com.huawei.hmf.tasks.Task<RawResult> task) {
-                            mResult = mResultInterceptor.intercept(task.getResult());
+                            if (task.isSuccessful()) {
+                                mResult = mResultInterceptor.intercept(task.getResult());
+                            } else {
+                                mException = task.getException();
+                            }
                             listener.onComplete(mDelegate);
                         }
                     });
@@ -706,7 +714,11 @@ public final class HuaweiTask<RawResult, Result> implements Task<Result> {
                         @Override
                         public void onComplete(
                                 @NonNull com.huawei.hmf.tasks.Task<RawResult> task) {
-                            mResult = mResultInterceptor.intercept(task.getResult());
+                            if (task.isSuccessful()) {
+                                mResult = mResultInterceptor.intercept(task.getResult());
+                            } else {
+                                mException = task.getException();
+                            }
                             listener.onComplete(mDelegate);
                         }
                     });
